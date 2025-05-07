@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+    <title>Diagnosis Interface</title>
+</head>
+<body>
+    <h1>Diagnose the following X-ray</h1>
+    <img src="{{ url_for('static', filename='generated_images/' + img_path) }}" alt="X-ray Image" width="512">
+    <form action="/submit" method="post">
+        <input type="hidden" name="true_label" value="{{ true_label }}">
+        <label><input type="radio" name="label" value="positive" required> Positive</label><br>
+        <label><input type="radio" name="label" value="negative"> Negative</label><br>
+        <input type="submit" value="Next Image">
+    </form>
+
+    <form action="/evaluate" method="get" style="margin-top:20px;">
+        <input type="submit" value="End and Evaluate">
+    </form>
+</body>
+</html>
